@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationConfiguration xmlns:ua="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/SDK/Configuration.xsd">
+	<ApplicationName>IndustrialBridge</ApplicationName>
+	<ApplicationUri>urn:localhost:IndustrialBridge</ApplicationUri>
+	<ProductUri>urn:IndustrialBridge</ProductUri>
+	<ApplicationType>Server</ApplicationType>
+	<SecurityConfiguration>
+		<ApplicationCertificate>
+			<StoreType>Directory</StoreType>
+			<StorePath>%CommonApplicationData%\OPC Foundation\CertificateStores\MachineDefault</StorePath>
+			<SubjectName>CN=IndustrialBridge, C=US</SubjectName>
+		</ApplicationCertificate>
+		<TrustedIssuerCertificates>
+			<StoreType>Directory</StoreType>
+			<StorePath>%CommonApplicationData%\OPC Foundation\CertificateStores\UA Certificate Authorities</StorePath>
+		</TrustedIssuerCertificates>
+		<TrustedPeerCertificates>
+			<StoreType>Directory</StoreType>
+			<StorePath>%CommonApplicationData%\OPC Foundation\CertificateStores\UA Applications</StorePath>
+		</TrustedPeerCertificates>
+		<AutoAcceptUntrustedCertificates>true</AutoAcceptUntrustedCertificates>
+	</SecurityConfiguration>
+	<TransportConfigurations></TransportConfigurations>
+	<TransportQuotas>
+		<OperationTimeout>600000</OperationTimeout>
+		<MaxStringLength>1048576</MaxStringLength>
+		<MaxByteStringLength>1048576</MaxByteStringLength>
+		<MaxArrayLength>65535</MaxArrayLength>
+		<MaxMessageSize>4194304</MaxMessageSize>
+		<MaxBufferSize>65535</MaxBufferSize>
+		<ChannelLifetime>300000</ChannelLifetime>
+		<SecurityTokenLifetime>3600000</SecurityTokenLifetime>
+	</TransportQuotas>
+	<ServerConfiguration>
+		<BaseAddresses>
+			<ua:String>opc.tcp://localhost:4840/IndustrialBridge</ua:String>
+		</BaseAddresses>
+		<SecurityPolicies>
+			<ServerSecurityPolicy>
+				<SecurityMode>None</SecurityMode>
+				<SecurityPolicyUri>http://opcfoundation.org/UA/SecurityPolicy#None</SecurityPolicyUri>
+			</ServerSecurityPolicy>
+		</SecurityPolicies>
+		<MinRequestThreadCount>5</MinRequestThreadCount>
+		<MaxRequestThreadCount>100</MaxRequestThreadCount>
+		<MaxQueuedRequestCount>2000</MaxQueuedRequestCount>
+	</ServerConfiguration>
+</ApplicationConfiguration>
